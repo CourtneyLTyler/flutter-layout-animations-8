@@ -22,36 +22,41 @@ class HeroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double maxRadius = 80.0;
+    final double minRadius = 80.0;
     return Scaffold(
       appBar: AppBar(title: Text('Hero Animation Demo')),
-      body: Container(
-        padding: EdgeInsets.all(24),
-        alignment: Alignment.topLeft,
-        child:
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween, 
-              children: [
-          GestureDetector(
-            child: Util.buildHeroIcon(Util.UNICORN_1_PATH, 'unicorn1'),
-            onTap: () {
-              changeRoute(context, 'unicorn1');
-            },
+      body: 
+          Container(
+            padding: EdgeInsets.all(24),
+            alignment: Alignment.topLeft,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    child: Util.buildHeroRadialIcon(
+                        Util.UNICORN_1_PATH, 'unicorn1', minRadius, maxRadius),
+                    onTap: () {
+                      changeRoute(context, 'unicorn1');
+                    },
+                  ),
+                  GestureDetector(
+                    child: Util.buildHeroRadialIcon(
+                        Util.UNICORN_2_PATH, 'unicorn2', minRadius, maxRadius),
+                    onTap: () {
+                      changeRoute(context, 'unicorn2');
+                    },
+                  ),
+                  GestureDetector(
+                    child: Util.buildHeroRadialIcon(
+                        Util.UNICORN_3_PATH, 'unicorn3', minRadius, maxRadius),
+                    onTap: () {
+                      changeRoute(context, 'unicorn3');
+                    },
+                  ),
+                ]),
           ),
-          GestureDetector(
-            child: Util.buildHeroIcon(Util.UNICORN_2_PATH, 'unicorn2'),
-            onTap: () {
-              changeRoute(context, 'unicorn2');
-            },
-          ),
-          GestureDetector(
-            child: Util.buildHeroIcon(Util.UNICORN_3_PATH, 'unicorn3'),
-            onTap: () {
-              changeRoute(context, 'unicorn3');
-            },
-          ),
-        ]),
-      ),
-    );
+      );
   }
 }
 
